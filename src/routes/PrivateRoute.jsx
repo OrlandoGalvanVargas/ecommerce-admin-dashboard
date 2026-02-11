@@ -3,12 +3,31 @@ import { useAuth } from "../store/AuthContext"; // Lo crearemos en el paso 5
 
 function PrivateRoute({ children }) {
   // Obtener estado de autenticación
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
 
-  // Lógica de Protección
-  // Si No esta autenticado -> redirigir a login
-  // Si Sí esta autenticado -> mostrar el componente hijo
-  return isAuthenticated ? children : <Navigate to="/login" replace />;
+  // ⏳ SI ESTÁ VERIFICANDO SESIÓN → MOSTRAR LOADING
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <div>Verificando sesión...</div>
+      </div>
+    );
+  }
+
+  // 🔐 SI NO ESTÁ AUTENTICADO → REDIRIGIR A LOGIN
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  // ✅ SI ESTÁ AUTENTICADO → MOSTRAR CONTENIDO
+  return children;
 }
 
 export default PrivateRoute;

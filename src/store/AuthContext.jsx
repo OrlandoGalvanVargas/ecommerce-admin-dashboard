@@ -10,6 +10,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   // Efecto (Effects): Verficar si hay sesión generada al cargar la app
+
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
     const savedUser = localStorage.getItem("user");
@@ -31,7 +32,7 @@ export function AuthProvider({ children }) {
 
     // Actualizar estado
     setToken(authToken);
-    setUser(userData);
+    setUser(JSON.parse(userData));
     setIsAuthenticated(true);
   };
 
