@@ -86,7 +86,6 @@ function LoginPage() {
         </button>
       </form>
 
-      {/* 💡 DATOS DE PRUEBA (TEMPORAL) */}
       <div style={{ marginTop: "20px", fontSize: "12px", color: "#666" }}>
         <p>
           <strong>Datos de prueba:</strong>

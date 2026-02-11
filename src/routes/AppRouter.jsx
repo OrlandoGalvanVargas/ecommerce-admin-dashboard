@@ -3,6 +3,9 @@ import LoginPage from "../features/auth/pages/LoginPage";
 import DashboardPage from "../pages/DashboardPage";
 ("../pages/DashboardPage");
 import PrivateRoute from "./PrivateRoute";
+import ProductListPage from "../features/products/pages/ProductListPage";
+import ProductDetailPage from "../features/products/pages/ProductDetailPage";
+import ProductFormPage from "../features/products/pages/ProductFormPage";
 
 function AppRouter() {
   return (
@@ -17,6 +20,41 @@ function AppRouter() {
           element={
             <PrivateRoute>
               <DashboardPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <PrivateRoute>
+              <ProductListPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/products/new"
+          element={
+            <PrivateRoute>
+              <ProductFormPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/products/:id"
+          element={
+            <PrivateRoute>
+              <ProductDetailPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/products/:id/edit"
+          element={
+            <PrivateRoute>
+              <ProductFormPage />
             </PrivateRoute>
           }
         />
