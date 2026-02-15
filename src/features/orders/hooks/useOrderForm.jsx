@@ -25,7 +25,7 @@ function useOrderForm(orderId = null) {
         date: orderData.date || new Date().toISOString().split("T")[0],
       };
 
-      const savedOrder;
+      let savedOrder;
 
       if (isEditMode) {
         savedOrder = await orderService.update(orderId, dataToSend);
