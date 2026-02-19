@@ -17,10 +17,11 @@ function Sidebar() {
         <NavLink to="/users" style={({ isActive }) => linkStyle(isActive)}>
           Usuarios
         </NavLink>
-
+        <NavLink to="/orders" style={({ isActive }) => linkStyle(isActive)}>
+          Ordenes
+        </NavLink>
         <div style={dividerStyle}></div>
 
-        <div style={placeholderStyle}>Ordenes (proxímamente)</div>
         <div style={placeholderStyle}>Reportes (próximamente)</div>
         <button onClick={logout} style={logoutButtonStyle}>
           Cerrar Sesión
@@ -52,7 +53,6 @@ const navStyle = {
   padding: "20px 0",
 };
 
-// 🔗 FUNCIÓN PARA ESTILOS DE LINKS
 const linkStyle = (isActive) => ({
   padding: "12px 20px",
   color: "white",
